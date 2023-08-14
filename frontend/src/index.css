@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.blurred-wrapper{
+  height: 100vh;
+  background: url("wallpaper.jpg") center/cover;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+  animation: hue 10s infinite alternate;
+}
+
+.blurred-wrapper::after{
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: inherit;
+  filter: blur(1rem);
+  transform: scale(1.15);
+}
+
+@keyframes hue {
+  from{
+      filter: hue-rotate(0);
+  }
+  to{
+      filter: hue-rotate(360deg);
+  }
+}
